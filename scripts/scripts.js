@@ -395,3 +395,36 @@ const chart = new Chart(ctx, {
     },
   },
 });
+
+// Carousel Slider
+
+let currentSlideIndex = 0;
+const slides = document.querySelectorAll('.carousel-inner .carousel-item');
+const dots = document.querySelectorAll('.dot');
+
+// Function to update the carousel display
+function updateCarousel() {
+  // Hide all slides and remove active class from dots
+  slides.forEach((slide, index) => {
+    slide.classList.remove('active');
+    dots[index]?.classList.remove('active');
+  });
+  // Show the current slide and set the corresponding dot to active
+  slides[currentSlideIndex].classList.add('active');
+  dots[currentSlideIndex].classList.add('active');
+  console.log("Total slides:", slides.length);
+console.log("Total dots:", dots.length);
+}
+
+// Function to go to the next slide
+function nextSlide() {
+  currentSlideIndex = (currentSlideIndex + 1) % slides.length;
+  console.log("Next slide button clicked. Current slide index:", currentSlideIndex);
+  updateCarousel();
+};
+
+
+setInterval(nextSlide, 4000);
+
+document.querySelector('.carousel-next').addEventListener('click', nextSlide);
+document.querySelector('.carousel-prev').addEventListener('click', prevSlide);

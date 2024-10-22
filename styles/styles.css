@@ -284,7 +284,7 @@ input:checked+.slider:before {
 
 .carousel-container {
   width: 100%;
-  height: 100%;
+  height: 320px;
   overflow: hidden;
   position: relative;
   border-radius: 0.313rem;
@@ -301,6 +301,7 @@ input:checked+.slider:before {
   display: flex;
   transition: transform 0.5s ease;
   width: 100%;
+  flex-direction: row;
 }
 
 .carousel-item {
@@ -317,13 +318,14 @@ input:checked+.slider:before {
 
 .carousel-item img {
   width: 100%;
-  height: 100%;
+  height: 320px;
   object-fit: cover;
   background-repeat: no-repeat;
 }
 
 img {
   border-radius: 5px;
+  
 }
 
 .text-container {
@@ -348,6 +350,9 @@ img {
   font-size: 12px;
   font-weight: 400;
   line-height: 16px;
+  bottom: 26px;
+  position: absolute;
+  padding: 1rem;
 }
 
 .text p {
@@ -390,7 +395,13 @@ img {
 }
 
 .dots-container {
-  width: 100;
+  display: flex;
+  text-align: center;
+  gap: 0.5rem;
+  align-items: center;
+  justify-content: center;
+  bottom: 19px;
+  position: relative;
 }
 
 .dot {
@@ -398,7 +409,7 @@ img {
   width: 12px;
   background-color: #ffff;
   opacity: 30%;
-  border-radius: 10%;
+  border-radius: 24%;
   display: inline-block;
   cursor: pointer;
   display: inline-block;
@@ -406,9 +417,14 @@ img {
   height: 3px;
 }
 
-.active,
-.dot:hover {
-  background-color: #717171;
+.dot.active {
+  background-color: #ffff;
+  color: #ffff;
+  opacity: 100%;
+}
+
+.me {
+  margin-top: 4rem;
 }
 
 

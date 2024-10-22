@@ -1,6 +1,6 @@
 // Get the hamburger menu and nav links container elements
 const hamburger = document.getElementById("hamburger");
-const menuIcon = document.getElementById('menu-icon');
+const menuIcon = document.getElementById("menu-icon");
 const navLinksContainer = document.querySelector(".nav-links-container");
 const worksSection = document.querySelector(".work-container");
 const eventCounts = document.getElementById("event-count");
@@ -16,24 +16,24 @@ function toggleMenu() {
   navLinksContainer.classList.toggle("active");
 
   // Optionally, toggle a class on the hamburger icon for styling
- if (hamburger.classList.toggle("active")) {
-    menuIcon.src = './Assets/Images/hamburger.svg'
- } else {
+  if (hamburger.classList.toggle("active")) {
+    menuIcon.src = "./Assets/Images/hamburger.svg";
+  } else {
     // Change back to hamburger icon
-    menuIcon.src = './Assets/Images/Home.png'; // Change this back to the hamburger icon
-    menuIcon.alt = 'Menus';
- }
+    menuIcon.src = "./Assets/Images/Home.png"; // Change this back to the hamburger icon
+    menuIcon.alt = "Menus";
+  }
 }
 
 // Add click event listener to the hamburger menu
 hamburger.addEventListener("click", toggleMenu);
 
-document.querySelectorAll('.nav-menu')
-  .forEach((n) => n.addEventListener('click', () => {
-    hamburger.classList.remove('active');
-    navLinksContainer.classList.remove('active');
-  }))
-
+document.querySelectorAll(".nav-menu").forEach((n) =>
+  n.addEventListener("click", () => {
+    hamburger.classList.remove("active");
+    navLinksContainer.classList.remove("active");
+  })
+);
 
 //Events
 const events = [
@@ -309,9 +309,9 @@ function setEvents() {
   eventCounts.innerText = `Displaying ${eventCount} results`;
   totalEvents.innerText = `${eventCount}`;
   rowCounts.innerText = `${currentEvents.length}`;
-  
+
   setPageNumbers(currentPage, totalPages);
-  
+
   currentEvents.forEach((items) => {
     let statusStyle = "";
 
@@ -348,7 +348,50 @@ function setEvents() {
   worksSection.innerHTML = html;
 
   updatePaginationButtons();
-  
+
   // Update the "In Progress" count
-  countInProgressEvents(); 
+  countInProgressEvents();
 }
+
+//Chart file
+const ctx = document.getElementById("myChart").getContext('2d'); // Get the 2D drawing context of the canvas
+
+// Create the bar chart using Chart.js
+const chart = new Chart(ctx, {
+  type: "bar",
+  data: {
+    labels: ["Ja", "Fe", "Mr", "Ap", "Ma", "Jn", "Jl", "Se", "Oc", "No", "De"], // Labels for each month
+    datasets: [
+      {
+        label: "# Event Registrations per month",
+        data: [1000, 800, 600, 400, 200, 1000, 800, 600, 400, 200, 850, 540], // Data for the chart
+        borderWidth: 2,
+        backgroundColor: "#8576ff", // Bar color
+        borderDash: [1, 1], // Optional dashed borders for the bars
+      },
+    ],
+  },
+  options: {
+    plugins: {
+      legend: {
+        display: false, // Hide the legend
+      },
+    },
+    scales: {
+      y: {
+        beginAtZero: true,
+        ticks: {
+          stepSize: 200, // Step size of 200 on the y-axis
+        },
+        grid: {
+          borderDash: [1, 1], // Dashed grid lines on the y-axis
+        },
+      },
+      x: {
+        grid: {
+          display: false, // Optional: Hide the grid lines on the x-axis
+        },
+      },
+    },
+  },
+});

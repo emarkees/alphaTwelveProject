@@ -403,12 +403,15 @@ const slides = document.querySelectorAll('.carousel-inner .carousel-item');
 const dots = document.querySelectorAll('.dot');
 
 // Function to update the carousel display
+
 function updateCarousel() {
+
   // Hide all slides and remove active class from dots
   slides.forEach((slide, index) => {
     slide.classList.remove('active');
     dots[index]?.classList.remove('active');
   });
+
   // Show the current slide and set the corresponding dot to active
   slides[currentSlideIndex].classList.add('active');
   dots[currentSlideIndex].classList.add('active');
@@ -419,10 +422,14 @@ console.log("Total dots:", dots.length);
 // Function to go to the next slide
 function nextSlide() {
   currentSlideIndex = (currentSlideIndex + 1) % slides.length;
-  console.log("Next slide button clicked. Current slide index:", currentSlideIndex);
   updateCarousel();
 };
 
+// Function to go to the previous slide
+function prevSlide() {
+  currentSlideIndex = (currentSlideIndex - 1 + slides.length) % slides.length;
+  updateCarousel();
+}
 
 setInterval(nextSlide, 4000);
 

@@ -193,3 +193,50 @@ input:checked+.slider:before {
 .slider.round:before {
   border-radius: 50%;
 }
+
+/** Stat Section **/
+
+.stats-container {
+  display: flex;
+  flex-direction: column;
+  padding: 0 1.25rem 0 1.25rem;
+  gap: 0.8rem;
+}
+
+.stat {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid rgb(236, 232, 232);
+  padding: 1rem;
+}
+
+.stat-content {
+  display: flex;
+  width: 100%;
+  height: 1.5rem;
+}
+
+.stat-content h2 {
+  align-content: center;
+}
+
+.stat-value {
+  display: flex;
+  width: inherit;
+  height: 2rem;
+}
+
+.stat-value p {
+  width: inherit;
+  font-weight: 600;
+  size: 1.25rem;
+  align-content: center;
+  color: #334155;
+  ;
+}

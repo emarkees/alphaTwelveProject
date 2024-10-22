@@ -7,9 +7,9 @@ const navLinksContainer = document.querySelector('.nav-links-container');
 function toggleMenu() {
   navLinksContainer.classList.toggle('active');
   if (hamburger.classList.toggle('active')) {
-    menuIcon.src = './Assets/Images/hamburger.svg'
-  } else {
-    menuIcon.src = './Assets/Images/Home.png';
+  //   menuIcon.src = './Assets/Images/hamburger.svg'
+  // } else {
+  //   menuIcon.src = './Assets/Images/Home.png';
   }
 };
 

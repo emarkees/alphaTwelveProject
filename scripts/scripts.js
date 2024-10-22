@@ -45,122 +45,8 @@ const events = [
     date: "2024-02-21",
   },
   {
-    eventName: "Blockchain Revolution Conference",
-    status: "Completed",
-    speaker: "Jane Smith",
-    date: "2024-01-15",
-  },
-  {
-    eventName: "Cybersecurity Forum",
-    status: "Completed",
-    speaker: "Emily Clark",
-    date: "2024-03-10",
-  },
-  {
-    eventName: "Data Science Bootcamp",
-    status: "In Progress",
-    speaker: "Michael Lee",
-    date: "2024-02-25",
-  },
-  {
-    eventName: "Blockchain Conference",
-    status: "Completed",
-    speaker: "Samantha Brown",
-    date: "2023-12-30",
-  },
-  {
-    eventName: "Future of Web Development",
-    status: "Completed",
-    speaker: "David Taylor",
-    date: "2024-04-05",
-  },
-  {
-    eventName: "Tech for Good Summit",
-    status: "Completed",
-    speaker: "Olivia Johnson",
-    date: "2024-01-28",
-  },
-  {
-    eventName: "IoT Conference 2024",
-    status: "In Progress",
-    speaker: "Mark Wilson",
-    date: "2024-02-18",
-  },
-  {
-    eventName: "Mobile World Congress",
-    status: "Completed",
-    speaker: "Anna White",
-    date: "2024-05-12",
-  },
-  {
-    eventName: "Smart Cities Expo",
-    status: "Completed",
-    speaker: "Robert King",
-    date: "2023-12-05",
-  },
-  {
-    eventName: "HealthTech Innovation",
-    status: "In Progress",
-    speaker: "Laura Martin",
-    date: "2024-03-03",
-  },
-  {
-    eventName: "Quantum Computing Summit",
-    status: "Completed",
-    speaker: "Steve Anderson",
-    date: "2024-06-10",
-  },
-  {
-    eventName: "Robotics Expo 2024",
-    status: "Completed",
-    speaker: "Chris Evans",
-    date: "2024-01-07",
-  },
-  {
-    eventName: "Augmented Reality Conference",
-    status: "In Progress",
-    speaker: "Nancy Thomas",
-    date: "2024-02-14",
-  },
-  {
-    eventName: "5G Tech Forum",
-    status: "Completed",
-    speaker: "Matthew Harris",
-    date: "2024-03-18",
-  },
-  {
-    eventName: "Big Data World",
-    status: "Completed",
-    speaker: "Rachel Green",
-    date: "2023-11-22",
-  },
-  {
-    eventName: "Digital Marketing Summit",
-    status: "In Progress",
-    speaker: "Sophia Davis",
-    date: "2024-02-20",
-  },
-  {
-    eventName: "E-commerce Future Forum",
-    status: "Completed",
-    speaker: "Lucas Scott",
-    date: "2024-04-17",
-  },
-  {
-    eventName: "EdTech Innovations",
-    status: "Completed",
-    speaker: "Jack Hall",
-    date: "2024-01-10",
-  },
-  {
-    eventName: "Virtual Reality Expo",
-    status: "In Progress",
-    speaker: "Jessica Walker",
-    date: "2024-02-12",
-  },
-  {
     id: 2,
-    eventName: "AI Expo 2024",
+    eventName: "Blockchain Revolution Conference",
     status: "Completed",
     speaker: "Jane Smith",
     date: "2024-01-15",
@@ -290,8 +176,9 @@ const events = [
     status: "In Progress",
     speaker: "Jessica Walker",
     date: "2024-02-12",
-  },
+  }
 ];
+
 
 //Set Events
 

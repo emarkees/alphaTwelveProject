@@ -240,8 +240,125 @@ function setEvents() {
   countInProgressEvents();
 }
 
+
+function toggleDetails(row) {
+  const nextRow = row.nextElementSibling;
+  // var dropdownIcon = row.querySelector(".dropdown-icon");
+
+  if (currentlyOpenRow && currentlyOpenRow !== row) {
+    const prevNextRow = currentlyOpenRow.nextElementSibling;
+    if (prevNextRow && prevNextRow.classList.contains("event-details")) {
+      prevNextRow.style.display = "none";
+      currentlyOpenRow.classList.remove("active");
+    }
+  }
+
+  if (nextRow && nextRow.classList.contains("event-details")) {
+    if (nextRow.style.display === "table-row") {
+      nextRow.style.display = "none";
+      row.classList.remove("active");
+      currentlyOpenRow = null;
+    } else {
+      nextRow.style.display = "table-row";
+      row.classList.add("active");
+      currentlyOpenRow = row;
+    }
+  }
+};
+
+function setPageNumbers(currentPage, totalPages) {
+  const currentPageElement = document.getElementById('current-page');
+  currentPageElement.innerHTML = ""; // Clear existing content
+
+  const pagesToShow = [];
+  const maxPagesToShow = 4; // Number of pages to display
+  const startPage = Math.max(1, currentPage - 1);
+  const endPage = Math.min(totalPages, currentPage + 2);
+
+  // Construct the array of pages to display
+  if (startPage > 1) {
+    pagesToShow.push(1); // Always show the first page
+    if (startPage > 2) pagesToShow.push("..."); // Add ellipsis if needed
+  }
+
+  for (let i = startPage; i <= endPage; i++) {
+    pagesToShow.push(i);
+  }
+
+  if (endPage < totalPages) {
+    if (endPage < totalPages - 1) pagesToShow.push("..."); // Add ellipsis if needed
+    pagesToShow.push(totalPages); // Always show the last page
+  }
+
+  // Render the page numbers
+  pagesToShow.forEach((pageNumber) => {
+    if (pageNumber === currentPage) {
+      currentPageElement.innerHTML += `<span class="count active" style="background-color: #8576ff; color: white;">${pageNumber}</span>`;
+    } else if (pageNumber === "...") {
+      currentPageElement.innerHTML += `<span class="count" style="background-color: white; color: black;">${pageNumber}</span>`;
+    } else {
+      currentPageElement.innerHTML += `<span class="count" style="background-color: white; color: black;" onclick="goToPage(${pageNumber})">${pageNumber}</span>`;
+    }
+  });
+}
+
+// Function to change the number of events displayed per page
+function changeEventsPerPage(count) {
+  eventsPerPage = parseInt(count); // Convert string value to integer
+  currentPage = 1; // Reset to the first page
+  setEvents(); // Re-render the events with the new rows per page
+}
+
+function updatePaginationButtons() {
+  const prevButton = document.querySelector('.pagination-controls .row-count:first-child');
+  const nextButton = document.querySelector('.pagination-controls .row-count:last-child');
+  const totalPages = Math.ceil(events.length / eventsPerPage);
+
+  prevButton.style.display = currentPage === 1 ? 'none' : 'flex';
+  nextButton.style.display = currentPage === totalPages ? 'none' : 'flex';
+}
+
+// Function to go to a specific page
+function goToPage(pageNumber) {
+  currentPage = pageNumber;
+  setEvents();
+}
+
+// Function to go to the next page
+function nextPage() {
+  const totalPages = Math.ceil(events.length / eventsPerPage);
+  if (currentPage < totalPages) {
+    currentPage++;
+    setEvents();
+  }
+}
+
+// Function to go to the previous page
+function prevPage() {
+  if (currentPage > 1) {
+    currentPage--;
+    setEvents();
+  }
+}
+
+// Function to count the number of events that are "In Progress"
+function countInProgressEvents() {
+  const inProgressCount = events.filter(event => event.status === "In Progress").length;
+  
+  // Display the count in an element on the page
+  const inProgressCountElement = document.getElementById("in-progress-count");
+  if (inProgressCountElement) {
+    inProgressCountElement.innerHTML = `${inProgressCount}`;
+  }
+  // Optional: return the count if needed elsewhere
+  return inProgressCount;
+}
+
+document.addEventListener("DOMContentLoaded", countInProgressEvents);
+
+
 //Chart file
-const ctx = document.getElementById("myChart").getContext('2d'); // Get the 2D drawing context of the canvas
+const ctx = document.getElementById("myChart").getContext('2d');
 
 // Create the bar chart using Chart.js
 const chart = new Chart(ctx, {
@@ -302,8 +419,6 @@ function updateCarousel() {
   // Show the current slide and set the corresponding dot to active
   slides[currentSlideIndex].classList.add('active');
   dots[currentSlideIndex].classList.add('active');
-  console.log("Total slides:", slides.length);
-console.log("Total dots:", dots.length);
 }
 
 // Function to go to the next slide
@@ -322,3 +437,6 @@ setInterval(nextSlide, 4000);
 
 document.querySelector('.carousel-next').addEventListener('click', nextSlide);
 document.querySelector('.carousel-prev').addEventListener('click', prevSlide);
+
+// Initial setup
+setEvents();

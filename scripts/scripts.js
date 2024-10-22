@@ -1,26 +1,38 @@
-const hamburger = document.getElementById('hamburger');
+// Get the hamburger menu and nav links container elements
+const hamburger = document.getElementById("hamburger");
 const menuIcon = document.getElementById('menu-icon');
-const navLinksContainer = document.querySelector('.nav-links-container');
+const navLinksContainer = document.querySelector(".nav-links-container");
+const worksSection = document.querySelector(".work-container");
+const eventCounts = document.getElementById("event-count");
+const totalEvents = document.getElementById("total-event");
+const rowCounts = document.getElementById("rows-count");
+const currentPages = document.getElementById("current-page");
+const totalPage = document.getElementById("total-pages");
+let currentlyOpenRow = null; // Variable to keep track of the currently open row
 
-
-//Function to toggle the menu and sidebar
+// Function to toggle the menu
 function toggleMenu() {
-  navLinksContainer.classList.toggle('active');
-  if (hamburger.classList.toggle('active')) {
-  //   menuIcon.src = './Assets/Images/hamburger.svg'
-  // } else {
-  //   menuIcon.src = './Assets/Images/Home.png';
-  }
-};
+  // Toggle the 'active' class on the nav links container
+  navLinksContainer.classList.toggle("active");
+
+  // Optionally, toggle a class on the hamburger icon for styling
+ if (hamburger.classList.toggle("active")) {
+    menuIcon.src = './Assets/Images/hamburger.svg'
+ } else {
+    // Change back to hamburger icon
+    menuIcon.src = './Assets/Images/Home.png'; // Change this back to the hamburger icon
+    menuIcon.alt = 'Menus';
+ }
+}
 
 // Add click event listener to the hamburger menu
-hamburger.addEventListener('click', toggleMenu);
+hamburger.addEventListener("click", toggleMenu);
 
-document.querySelectorAll('nav-menu')
-.forEach((n) => n.addEventListener('click', () => {
-  hamburger.classList.remove('active');
-  navLinksContainer.classList.remove('active')
-}));
+document.querySelectorAll('.nav-menu')
+  .forEach((n) => n.addEventListener('click', () => {
+    hamburger.classList.remove('active');
+    navLinksContainer.classList.remove('active');
+  }))
 
 
 //Events

@@ -220,10 +220,17 @@ input:checked+.slider:before {
   display: flex;
   width: 100%;
   height: 1.5rem;
+  align-items: center;
+  gap: 0.5rem;
 }
 
 .stat-content h2 {
   align-content: center;
+}
+
+.stat-content img {
+  width: 16px;
+  height: 16px;
 }
 
 .stat-value {
@@ -241,6 +248,4 @@ input:checked+.slider:before {
   ;
 }
 
-@media only screen and (min-width: 768px) {
-    
-}
+@media only screen and (min-width: 768px) {}

@@ -141,7 +141,7 @@
                 <p>Turpis interdum nunc varius ornare dignissim pretium. Massa ornare quis aliquet sed vitae. Sed velit nisi, fermentum erat. Fringilla purus, erat fringilla tincidunt quisque non. Pellentesque in ut tellus.</p>
               </div>
             </div>
-            
+
           </div>
           <div class="carousel-item" id="slide-container">
             <img src="./Assets/Images/project.png" alt="Slide 3">
@@ -158,19 +158,114 @@
         <a class="carousel-prev btn" onclick="prevSlide()">&#10094;</a>
         <a class="carousel-next btn" onclick="nextSlide()">&#10095;</a>
 
-         <!-- Slide indicators -->
-         <div class="dots-container" style="text-align:center">
+        <!-- Slide indicators -->
+        <div class="dots-container" style="text-align:center">
           <span class="dot" onclick="currentSlide(1)"></span>
           <span class="dot" onclick="currentSlide(2)"></span>
           <span class="dot" onclick="currentSlide(3)"></span>
         </div>
-
       </div>
     </section>
-    <section class="me"></section>
+    <!-- Event History -->
+    <section class="history-section">
+      <div class="history-container">
+        <div class="history-headlines">
+          <p>Events History</p>
+        </div>
+        <div class="events-history-container">
+          <div class="search-bar">
+            <input type="search" name="search" id="search" placeholder="Search...">
+            <img src="./Assets/Images/Search.png" alt="search" srcset="" class="search-icon">
+          </div>
+          <div class="date-input-container">
+            <input type="date" name="date" id="date" class="custom-date-input" onfocus="this.showPicker()">
+            <label for="date" id="placeholder">Date</label>
+          </div>
+          <div class="select-container">
+            <select name="status" id="status" class="custom-select">
+              <option value="" disabled selected hidden>Status</option>
+              <option value="Progress">Progress</option>
+              <option value="Completed">Completed</option>
+            </select>
+          </div>
+          <div class="name-container">
+            <select name="name" id="name" class="custom-select">
+              <option value="" disabled selected hidden>Name</option>
+              <option value="Progress">Progress</option>
+              <option value="Completed">Completed</option>
+            </select>
+          </div>
+        </div>
+      </div>
+      <div class="history-result">
+        <div class="headlines" id="event-count"></div>
+        <div class="sort-section">
+          <div class="sort-container">
+            <p>Sort</p>
+            <div class="sort-type">
+              <select name="sort" id="sort" class="most-recent">
+                <option value="" disabled selected hidden>Most Recent</option>
+                <option value="Progress">Progress</option>
+                <option value="Completed">Completed</option>
+              </select>
+            </div>
+          </div>
+          <div class="export-section">
+            <div class="three-dot-menu">
+              <div class="dot"></div>
+              <div class="dot"></div>
+              <div class="dot"></div>
+            </div>
+            <div class="export-container">
+              <div class="export-icon-container">
+                <img src="./Assets/Images/Export.png" alt="export" class="export-icon">
+              </div>
+              <span type="menu" class="export-button">Export</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="result-search">
+        <!-- Table -->
+        <table class="event-table">
+          <thead>
+            <tr>
+              <th>Event Name</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody class="work-container">
+          </tbody>
+        </table>
+      </div>
 
+      <div class="count-section">
+        <div class="page-count">
+          <div class="row-count" onclick="prevPage()">
+            <i class="fa-solid fa-angle-left"></i>
+          </div>
+          <!-- Current page number -->
 
+          <span id="current-page"></span>
+          <span id="rows-count"></span>
 
+          <!-- Next two page numbers -->
+
+          <div class="row-count" onclick="nextPage()">
+            <i class="fa-solid fa-angle-right"></i>
+          </div>
+        </div>
+        <div class="count-number">
+          <div class="dropdown-count">
+            <select class="dropdown-content" onchange="changeEventsPerPage(this.value)">
+              <option value="10">10 Rows</option>
+              <option value="20">20 Rows</option>
+              <option value="50">50 Rows</option>
+            </select>
+          </div>
+        </div>
+      </div>
+    </section>
   </main>
 
   </section>

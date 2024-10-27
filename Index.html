@@ -29,11 +29,10 @@
           <a href="#">YourLogo</a>
         </div>
         <div class="hamburger menuacton" id="hamburger">
-          <img src="./Assets/Images/hamburger.svg" alt="Menu" id="menu-icon">
+          <i class="fa-solid fa-bars" id="menu-icon"></i>
         </div>
       </div>
 
-      <!-- Navigation links container -->
       <div class="nav-links-container">
         <ul class="nav-links">
           <li class="nav-menu"><img src="./Assets/Images/Home.png" alt="home" class="nav-img"><a href="#">Home</a></li>
@@ -48,16 +47,51 @@
               <input type="checkbox">
               <span class="slider round"></span>
             </label>
-            <span class="text">Dark mode</span>
+            <span class="dm-text">Dark mode</span>
           </div>
-          <li class="nav-menu"><img src="./Assets/Images/Home.png" alt="home" class="nav-img"><a href="#">Yemi Olusola</a></li>
+          <li class="nav-menu"><img src="./Assets/Images/User.png" alt="home" class="nav-img"><a href="#">Yemi Olusola</a></li>
+        </ul>
+      </div>
+
+      <!-- Navigation links container -->
+
+    </nav>
+  </header>
+  <header class="lg-main-header" id="mySidenav">
+    <nav class="navbar">
+      <div class="logo-container" id="logo-container">
+        <div class="logo" id="logo">
+          <a href="#">YourLogo</a>
+        </div>
+        <div class="hamburger menuacton" id="menu-icon" onclick="openNav()">
+          <img src="./Assets/Images/hamburger.svg" alt="Menu" id="menu-icon">
+        </div>
+      </div>
+
+      <div class="nav-links-container" id="nav-links-container">
+        <ul class="nav-links" id="nav-links">
+          <li class="nav-menu"><img src="./Assets/Images/Home.png" alt="home" class="nav-img"><a href="#" id="nav-link">Home</a></li>
+          <li class="nav-menu"><img src="./Assets/Images/Event.png" alt="home" class="nav-img"><a href="#" id="nav-link">Events</a></li>
+          <li class="nav-menu"><img src="./Assets/Images/Speaker.png" alt="home" class="nav-img"><a href="#" id="nav-link">Speakers</a></li>
+          <li class="nav-menu"><img src="./Assets/Images/Report.png" alt="home" class="nav-img"><a href="#" id="nav-link">Reports</a></li>
+          <li class="nav-menu"><img src="./Assets/Images/Notification.png" alt="home" class="nav-img"><a href="#" id="nav-link">Notifications</a></li>
+          <li class="nav-menu"><img src="./Assets/Images/Message.png" alt="home" class="nav-img"><a href="#" id="nav-link">Messages</a></li>
+          <li class="nav-menu"><img src="./Assets/Images/Setting.png" alt="home" class="nav-img"><a href="#" id="nav-link">Settings</a></li>
+          <div class="dark-mode">
+            <label class="switch">
+              <input type="checkbox">
+              <span class="slider round"></span>
+            </label>
+            <span class="dm-text">Dark mode</span>
+          </div>
+          <li class="nav-menu"><img src="./Assets/Images/User.png" alt="home" class="nav-img"><a href="#" id="nav-link">Yemi Olusola</a></li>
         </ul>
       </div>
     </nav>
   </header>
 
   <!-- Main body-->
-  <main class="main">
+  <main class="main" id="main">
     <section class="stats-section">
       <div class="stats-container">
         <div class="headlines">
@@ -71,7 +105,7 @@
             </div>
             <div class="stat-value">
               <p id="total-event"></p>
-              <img src="./Assets/Images/arrow-angle-right.png" alt="">
+              <p id="total-event-change"></p>
             </div>
           </div>
 
@@ -82,6 +116,7 @@
             </div>
             <div class="stat-value">
               <p id="in-progress-count">5</p>
+              <p id="active-speaker-change"></p>
             </div>
           </div>
 
@@ -92,6 +127,7 @@
             </div>
             <div class="stat-value">
               <p>25</p>
+              <p id="registration-change"></p>
             </div>
           </div>
 
@@ -101,8 +137,8 @@
               <img src="./Assets/Images/info.png" alt="info">
             </div>
             <div class="stat-value">
-              <p>$500,000</p>
-
+              <p id="total-revenue"></p>
+              <p id="percentage-change"></p>
             </div>
           </div>
         </div>
@@ -110,111 +146,116 @@
     </section>
 
     <!-- Chart section -->
-    <section class="chart-section">
-      <div class="chart-container">
-        <div class="chart-headlines">
-          <p>Event Registrations per month</p>
+    <div class="chart-carousel">
+      <section class="chart-section">
+        <div class="chart-container">
+          <canvas id="myChart" style="width:100%; height:260px;"></canvas>
         </div>
-        <canvas id="myChart" style="width:100%; height:260px;"></canvas>
-      </div>
-    </section>
+      </section>
 
-    <!-- Carousel Section-->
+      <!-- Carousel Section-->
 
-    <section class="carousel">
-      <div class="carousel-container">
-        <div class="carousel-inner" id="carousel">
-          <div class="carousel-item active" id="slide-container">
-            <img src="./Assets/Images/lady.png" alt="Slide 1">
-            <div class="text-container">
-              <div class="text">
-                <p>Latest News & Updates</p>
-                <p>Turpis interdum nunc varius ornare dignissim pretium. Massa ornare quis aliquet sed vitae. Sed velit nisi, fermentum erat. Fringilla purus, erat fringilla tincidunt quisque non. Pellentesque in ut tellus.</p>
+      <section class="carousel">
+        <div class="carousel-container">
+          <div class="carousel-inner" id="carousel">
+            <div class="carousel-item active" id="slide-container">
+              <img src="./Assets/Images/lady.png" alt="Slide 1">
+              <div class="text-container">
+                <div class="text">
+                  <p>Latest News & Updates</p>
+                  <p>Turpis interdum nunc varius ornare dignissim pretium. Massa ornare quis aliquet sed vitae. Sed velit nisi, fermentum erat. Fringilla purus, erat fringilla tincidunt quisque non. Pellentesque in ut tellus.</p>
+                </div>
+              </div>
+            </div>
+            <div class="carousel-item" id="slide-container">
+              <img src="./Assets/Images/guy.png" alt="Slide 2">
+              <div class="text-container">
+                <div class="text">
+                  <p>Latest News & Updates</p>
+                  <p>Turpis interdum nunc varius ornare dignissim pretium. Massa ornare quis aliquet sed vitae. Sed velit nisi, fermentum erat. Fringilla purus, erat fringilla tincidunt quisque non. Pellentesque in ut tellus.</p>
+                </div>
+              </div>
+
+            </div>
+            <div class="carousel-item" id="slide-container">
+              <img src="./Assets/Images/project.png" alt="Slide 3">
+              <div class="text-container">
+                <div class="text">
+                  <p>Latest News & Updates</p>
+                  <p>Turpis interdum nunc varius ornare dignissim pretium. Massa ornare quis aliquet sed vitae. Sed velit nisi, fermentum erat. Fringilla purus, erat fringilla tincidunt quisque non. Pellentesque in ut tellus.</p>
+                </div>
               </div>
             </div>
           </div>
-          <div class="carousel-item" id="slide-container">
-            <img src="./Assets/Images/guy.png" alt="Slide 2">
-            <div class="text-container">
-              <div class="text">
-                <p>Latest News & Updates</p>
-                <p>Turpis interdum nunc varius ornare dignissim pretium. Massa ornare quis aliquet sed vitae. Sed velit nisi, fermentum erat. Fringilla purus, erat fringilla tincidunt quisque non. Pellentesque in ut tellus.</p>
-              </div>
-            </div>
 
-          </div>
-          <div class="carousel-item" id="slide-container">
-            <img src="./Assets/Images/project.png" alt="Slide 3">
-            <div class="text-container">
-              <div class="text">
-                <p>Latest News & Updates</p>
-                <p>Turpis interdum nunc varius ornare dignissim pretium. Massa ornare quis aliquet sed vitae. Sed velit nisi, fermentum erat. Fringilla purus, erat fringilla tincidunt quisque non. Pellentesque in ut tellus.</p>
-              </div>
-            </div>
+          <!-- Navigation buttons -->
+          <a class="carousel-prev btn" onclick="prevSlide()">&#10094;</a>
+          <a class="carousel-next btn" onclick="nextSlide()">&#10095;</a>
+
+          <!-- Slide indicators -->
+          <div class="dots-container" style="text-align:center">
+            <span class="dot" onclick="currentSlide(1)"></span>
+            <span class="dot" onclick="currentSlide(2)"></span>
+            <span class="dot" onclick="currentSlide(3)"></span>
           </div>
         </div>
+      </section>
+    </div>
 
-        <!-- Navigation buttons -->
-        <a class="carousel-prev btn" onclick="prevSlide()">&#10094;</a>
-        <a class="carousel-next btn" onclick="nextSlide()">&#10095;</a>
-
-        <!-- Slide indicators -->
-        <div class="dots-container" style="text-align:center">
-          <span class="dot" onclick="currentSlide(1)"></span>
-          <span class="dot" onclick="currentSlide(2)"></span>
-          <span class="dot" onclick="currentSlide(3)"></span>
-        </div>
-      </div>
-    </section>
     <!-- Event History -->
     <section class="history-section">
+      <div class="history-headlines">
+        <p>Events History</p>
+      </div>
       <div class="history-container">
-        <div class="history-headlines">
-          <p>Events History</p>
-        </div>
-        <div class="events-history-container">
+        <div class="search-form">
           <div class="search-bar">
-            <input type="search" name="search" id="search" placeholder="Search...">
+            <input type="search" name="search" id="event-search" placeholder="Search..." oninput="handleSearch()">
             <img src="./Assets/Images/Search.png" alt="search" srcset="" class="search-icon">
           </div>
           <div class="date-input-container">
-            <input type="date" name="date" id="date" class="custom-date-input" onfocus="this.showPicker()">
-            <label for="date" id="placeholder">Date</label>
+            <div class="date-input-wrapper">
+              <input type="text" id="search-date" class="date-input" placeholder="Date" readonly>
+              <i class="fa-solid fa-chevron-down date-arrow"></i>
+              <ul class="date-dropdown-options" style="display: none;">
+                <li onclick="selectDate('2023-10-01')">2023-10-01</li>
+                <li onclick="selectDate('2023-10-02')">2023-10-02</li>
+                <li onclick="selectDate('2023-10-03')">2023-10-03</li>
+              </ul>
+            </div>
           </div>
           <div class="select-container">
-            <select name="status" id="status" class="custom-select">
-              <option value="" disabled selected hidden>Status</option>
-              <option value="Progress">Progress</option>
+            <select name="status" id="status-search" class="custom-select" onchange="handleSearch()" readonly>
+              <option value="" disabled selected>Status</option>
+              <option value="In Progress">Progress</option>
               <option value="Completed">Completed</option>
             </select>
           </div>
           <div class="name-container">
             <select name="name" id="name" class="custom-select">
-              <option value="" disabled selected hidden>Name</option>
+              <option value="" disabled selected>Name</option>
               <option value="Progress">Progress</option>
               <option value="Completed">Completed</option>
             </select>
           </div>
+          <div class="headlines" id="event-count"></div>
         </div>
-      </div>
-      <div class="history-result">
-        <div class="headlines" id="event-count"></div>
         <div class="sort-section">
           <div class="sort-container">
             <p>Sort</p>
             <div class="sort-type">
               <select name="sort" id="sort" class="most-recent">
                 <option value="" disabled selected hidden>Most Recent</option>
-                <option value="Progress">Progress</option>
+                <option value="In Progress">In Progress</option>
                 <option value="Completed">Completed</option>
               </select>
             </div>
           </div>
           <div class="export-section">
             <div class="three-dot-menu">
-              <div class="dot"></div>
-              <div class="dot"></div>
-              <div class="dot"></div>
+              <div class="dot-1"></div>
+              <div class="dot-2"></div>
+              <div class="dot-3"></div>
             </div>
             <div class="export-container">
               <div class="export-icon-container">
@@ -225,12 +266,15 @@
           </div>
         </div>
       </div>
+
       <div class="result-search">
         <!-- Table -->
-        <table class="event-table">
+        <table class="event-table" id="event-table-body">
           <thead>
             <tr>
               <th>Event Name</th>
+              <th class="desktop-only">Date</th>
+              <th class="desktop-only">Speaker</th>
               <th>Status</th>
             </tr>
           </thead>
@@ -247,7 +291,6 @@
             </div>
           </div>
           <!-- Current page number -->
-
           <span id="current-page"></span>
           <span id="rows-count"></span>
 
@@ -270,8 +313,39 @@
         </div>
       </div>
     </section>
-  </main>
 
+    <!-- Modal Structure -->
+    <div id="event-modal" class="modal">
+      <div class="modal-content">
+        <div class="modal-name">
+          <div class="modal-name-con">
+            <strong>
+              Event Name
+              <h2 class="primary-title" id="modal-event-name"></h2>
+            </strong>
+            <p><strong>Date:</strong> <span id="modal-event-date"></span></p>
+          </div>
+          <span class="close-button" id="close-button">&times;</span>
+        </div>
+        <div class="discription">
+          <p id="modal-event-description" class="modal-primary-body-text"></p>
+        </div>
+        <div class="modal-speaker">
+          <img id="modal-speaker-image" class="card-background-image" src="" alt="Speaker Image" style="width: 100px; height: auto;">
+          <p><strong>Speaker:</strong>
+            <span id="modal-speaker-name"></span>
+          </p>
+        </div>
+
+        <div class="modal-buttons">
+          <button id="edit-button">Edit</button>
+          <button id="delete-button">Delete</button>
+          <button id="complete-button">Mark as Completed</button>
+        </div>
+      </div>
+    </div>
+  </main>
+ 
   </section>
   <script src="scripts/scripts.js"></script>
 </body>
